@@ -26,15 +26,15 @@ def test_cache_management():
     manager.email = "test@example.com"
     uid = id(manager)
     
-#     # Add to cache and check existence
-#     UserProfileManager.add_to_cache(manager)
-#     assert UserProfileManager.get_from_cache(uid) is manager
+    # Add to cache and check existence
+    UserProfileManager.add_to_cache(manager)
+    assert UserProfileManager.get_from_cache(uid) is manager
     
-#     # Delete strong reference and confirm weak ref removal
-#     del manager
-#     assert UserProfileManager.get_from_cache(uid) is None
+    # Delete strong reference and confirm weak ref removal
+    del manager
+    assert UserProfileManager.get_from_cache(uid) is None
 
-# def test_property_resolution():
-#     manager = UserProfileManager()
-#     manager.last_login = None  # Should resolve to default if unset
-#     assert manager.last_login is None
+def test_property_resolution():
+    manager = UserProfileManager()
+    manager.last_login = None  # Should resolve to default if unset
+    assert manager.last_login is None
